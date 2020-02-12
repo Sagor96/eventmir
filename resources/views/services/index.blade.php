@@ -1,7 +1,38 @@
 @extends('master')
 
 @section('title','ServiceList')
-
+@section('sidebar')
+      <div class="logo">
+        <a href="/" class="simple-text logo-mini">
+          EM
+        </a>
+        <a href="/" class="simple-text logo-normal">
+          EventMir
+        </a>
+      </div>
+      <div class="sidebar-wrapper" id="sidebar-wrapper">
+        <ul class="nav">
+          <li>
+            <a href="#">
+              <i class="now-ui-icons design_app"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="now-ui-icons ui-1_bell-53"></i>
+              <p>Notifications</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="now-ui-icons users_single-02"></i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          </ul>
+      </div>
+@stop
 @section('content')
 <section class="content-header">
   <div class="row'">
@@ -64,7 +95,7 @@
                           <form class="myform" action="{{ route('services.destroy', $service->id) }}" method="post" onsubmit="return confirm('Are you sure?')">
                               @csrf
                               @method('DELETE')
-                              <button type="submit" class="btn btn-danger float-left">Delete</button>
+                              <button type="submit" class="btn btn-danger">Delete</button>
                           </form>
                         </span>
 
