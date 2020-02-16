@@ -43,11 +43,25 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{{route('services.index')}}">Services</a>
+            <a class="nav-link js-scroll-trigger" href="#">Services</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-          </li>
+          <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Pages
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{route('services.index')}}">Services</a>
+                <a class="dropdown-item" href="{{route('clients.index')}}">Client</a>
+                <a class="dropdown-item" href="#">Notice</a>
+                <a class="dropdown-item" href="#">Notice Details</a>
+                <a class="dropdown-item" href="#">Research</a>
+                <a class="dropdown-item" href="#">Scholarship</a>
+                <a class="dropdown-item" href="#">Course Details</a>
+                <a class="dropdown-item" href="#">Event Details</a>
+                <a class="dropdown-item" href="#">Blog Details</a>
+              </div>
+            </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#about">About</a>
           </li>

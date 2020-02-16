@@ -31,7 +31,20 @@
 </head>
 
 <body>
-
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({{asset('frontends/img/r22.jpg')}})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1 ></h1>
+            <span class="subheading"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
@@ -62,20 +75,7 @@
       </div>
     </nav>
 
-  <!-- Page Header -->
-  <header class="masthead" style="background-image: url({{asset('frontends/img/r22.jpg')}})">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
-            <h1 ></h1>
-            <span class="subheading"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+
 
   <!-- Main Content -->
   <div class="container">
@@ -84,16 +84,7 @@
 
   <hr>
 <!-- /Main Content -->
-<!---DELETE--->
-<div class="col-sm-12">
 
-          @if(session()->get('success'))
-            <div class="alert alert-success alert-danger">
-              {{ session()->get('success') }}
-            </div>
-          @endif
-        </div>
-        <!---/DELETE--->
 @section('footer')
   <!-- Footer -->
   <footer>

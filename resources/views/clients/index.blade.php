@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title','ServiceList')
+@section('title','ClientList')
 @section('sidebar')
       <div class="logo">
         <a href="/" class="simple-text logo-mini">
@@ -37,11 +37,11 @@
 <section class="content-header">
   <div class="row'">
     <div class="col-md-6">
-      <h1 style="display: inline-block;">Services Lists</h1>
+      <h1 style="display: inline-block;">Clients Lists</h1>
     </div>
     <div class="col-md-6">
       <div class="add-new">
-        <a href="{{ route('services.create')}}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp;Add New Service</a>
+        <a href="{{ route('clients.create')}}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp;Add New Client</a>
       </div>
     </div>
   </div>
@@ -69,30 +69,34 @@
                 <table id="example1" class="table table-dark table-striped">
                   <thead class="text-info">
                     <tr>
-                        <th>SL</th>
-                        <th>Service Name</th>
-                        <th>Amounts (Tk)</th>
-                        <th>Action</th>
+                      <th>SL</th>
+                      <th>Name</th>
+                      <!-- <th>User Name</th> -->
+                      <th>E-Mail</th>
+                      <th>Phone</th>
+                      <th>Address</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
 
                   <tbody>
                     <?php $i=1; ?>
-                    @foreach($services as $service)
+                    @foreach($clients as $client)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td>{{ $service->s_name }}</td>
-                        <td class="text-right">{{$service->s_amount}}</td>
+                        <td>{{ $client->name }}</td>
+                        <!-- <td>{{ $client->username }}</td> -->
+                        <td>{{ $client->email }}</td>
+                        <td>{{ $client->phone }}</td>
+                        <td>{{ $client->address }}</td>
                         <td>
-                        <div class=" action">
-                        <a href="{{ route('services.edit', $service->id)}}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> &nbsp;Edit </a>
-                        <span>
-                          <style type="text/css">
-                            .myform{
-                              display: inline;
-                            }
+                          <div class=" action">
+                            <a href="{{ route('clients.edit', $client->id)}}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> &nbsp;Edit </a>
+                            <span>
+                              <style type="text/css">
+                                      .myform{display: inline;}
                           </style>
-                          <form class="myform" action="{{ route('services.destroy', $service->id) }}" method="post" onsubmit="return confirm('Are you sure?')">
+                          <form class="myform" action="{{ route('clients.destroy', $client->id) }}" method="post" onsubmit="return confirm('Are you sure?')">
                               @csrf
                               @method('DELETE')
                               <button type="submit" class="btn btn-danger">Delete</button>

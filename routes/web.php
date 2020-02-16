@@ -18,4 +18,7 @@ Route::get('/', function () {
 // Service Area
 Route::resource('services', 'ServiceController');
 Route::apiresource('Services', 'ServiceController');
-Route::get('search', 'ServiceController@search');
+
+// Client Area
+Route::resource('clients', 'ClientController');
+Route::apiresource('clients', 'ClientController');

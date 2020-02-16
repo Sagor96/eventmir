@@ -4,7 +4,7 @@
 
 @section('content')
 
-<section class="content-header">
+<section class="content">
   <div class="row">
       <div class="col-md-6">
         <h1 style="display: inline-block;">Add Service</h1>
@@ -15,10 +15,9 @@
         </div>
       </div>
     </div>
-</section>
-
+<hr/>
 <!-- Main content -->
-<section class="content">
+<hr/>
   <div class="row">
     <div class="col-xs-12">
 

@@ -1,0 +1,29 @@
+Note:
+-> Command on cmd
+-->use any editors
+
+1. migration a model
+   ->php artisan make:model Contact --migration (here model name Contact changable)
+   -->Open the database/migrations/xxxxxx_create_contacts_table migration file and update it
+   ->php artisan migrate
+   
+ 2. Make Model
+	-->Open the app/Contact.php
+	-->Make Models folder
+	-->Cut and paste app/Contact.php to app/Models/Contact.php
+	-->update it
+   
+ 3. Make Controller
+	->php artisan make:controller ContactController --resource
+	-->Open the app/Http/Controllers/ContactController.php file. This is the initial content
+	-->make index()
+	-->make create ()
+	-->make store()
+	-->make edit()
+	-->make update()
+	-->make delete()
+	
+ 4. Make resource/views
+	-->index page
+	-->create page
+	-->edit page
