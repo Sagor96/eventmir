@@ -53,7 +53,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{{route('services.index')}}">Services</a>
                 <a class="dropdown-item" href="{{route('clients.index')}}">Client</a>
-                <a class="dropdown-item" href="#">Notice</a>
+                <a class="dropdown-item" href="{{route('types.index')}}">Event Type</a>
                 <a class="dropdown-item" href="#">Notice Details</a>
                 <a class="dropdown-item" href="#">Research</a>
                 <a class="dropdown-item" href="#">Scholarship</a>
@@ -77,14 +77,16 @@
   </nav>
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url({{asset('frontends/img/em_2.jpg')}})">
+  <header class="masthead" style="background-image: url({{asset('frontends/img/em_3.jpg')}})">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1 ></h1>
-            <span class="subheading"></span>
+            <div class="intro-text">
+              <div class="intro-lead-in">Welcome To Our Website!!!</div>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#">Let's Share US An Event</a>
+            </div>
           </div>
         </div>
       </div>
@@ -129,7 +131,7 @@
               </a>
             </li>
           </ul>
-          <p class="copyright text-muted">Copyright &copy; Your Website 2019</p>
+          <p class="copyright text-muted">Copyright &copy; A. Alam Website 2020</p>
         </div>
       </div>
     </div>

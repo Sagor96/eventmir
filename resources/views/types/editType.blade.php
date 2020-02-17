@@ -1,17 +1,17 @@
 @extends('layouts')
 
-@section('title','ServiceUpdate')
+@section('title','EventTypeUpdate')
 
 @section('content')
 
-<section class="content-header">
+<section class="content">
   <div class="row">
       <div class="col-md-6">
-        <h1 style="display: inline-block;">Edit Service</h1>
+        <h1 style="display: inline-block;">Edit Event Type</h1>
       </div>
       <div class="col-md-6">
         <div class="add-new">
-          <a href="{{ route('services.index')}}" class="btn btn-success"><i class="fa fa-list-ul" aria-hidden="true"></i> &nbsp;Service List</a>
+          <a href="{{ route('types.index')}}" class="btn btn-success"><i class="fa fa-list-ul" aria-hidden="true"></i> &nbsp;Event Type List</a>
         </div>
       </div>
     </div>
@@ -19,13 +19,13 @@
 
 <!-- Main content -->
 <hr/>
-<section class="content">
+<div class="w-75 p-3" style="background-color: #eee685;">
   <div class="row">
     <div class="col-xs-6">
 
         <div class="box box-primary">
                 <!-- form start -->
-            <form role="form" action="{{ route('services.update', $services->id) }}" method="post">
+            <form role="form" action="{{ route('types.update', $types->id) }}" method="post">
 	              @csrf
 	              @method('PUT')
 
@@ -50,12 +50,8 @@
 	              @endif
                 <div class="box-body">
 					<div class="form-group">
-					  <label for="s_name">Service Name</label>
-					  <input type="text" class="form-control" id="s_name" placeholder="Service Name" name="s_name" value="{{ $services->s_name }}">
-					</div>
-					<div class="form-group">
-					  <label for="s_amount">Amounts(Tk)</label>
-					  <input type="text" class="form-control" id="s_amount" placeholder="Amounts" name="s_amount" value="{{ $services->s_amount }}">
+					  <label for="t_name">Event Type Name</label>
+					  <input type="text" class="form-control" id="t_name" placeholder="Type Name" name="t_name" value="{{ $types->t_name }}">
 					</div>
 	            </div>
                 <!-- /.box-body -->
@@ -72,7 +68,7 @@
     <!-- /.col -->
 
   </div>
-
+</div>
 
   <!-- /.row -->
 </section>

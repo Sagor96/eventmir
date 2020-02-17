@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title','ServiceList')
+@section('title','EventTypeList')
 @section('sidebar')
       <div class="logo">
         <a href="/" class="simple-text logo-mini">
@@ -41,7 +41,7 @@
     </div>
     <div class="col-md-6">
       <div class="add-new">
-        <a href="{{ route('services.create')}}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp;Add New Service</a>
+        <a href="{{ route('types.create')}}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp;Add New Event Type</a>
       </div>
     </div>
   </div>
@@ -70,29 +70,27 @@
                   <thead class="text-info">
                     <tr>
                         <th>SL</th>
-                        <th>Service Name</th>
-                        <th>Amounts</th>
+                        <th>Event Type Name</th>
                         <th>Action</th>
                     </tr>
                   </thead>
 
                   <tbody>
                     <?php $i=1; ?>
-                    @foreach($services as $service)
+                    @foreach($types as $type)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td>{{ $service->s_name }}</td>
-                        <td class="text-right">{{$service->s_amount}} Taka</td>
+                        <td>{{ $type->t_name }}</td>
                         <td>
                         <div class=" action">
-                        <a href="{{ route('services.edit', $service->id)}}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> &nbsp;Edit </a>
+                        <a href="{{ route('types.edit', $type->id)}}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> &nbsp;Edit </a>
                         <span>
                           <style type="text/css">
                             .myform{
                               display: inline;
                             }
                           </style>
-                          <form class="myform" action="{{ route('services.destroy', $service->id) }}" method="post" onsubmit="return confirm('Are you sure?')">
+                          <form class="myform" action="{{ route('types.destroy', $type->id) }}" method="post" onsubmit="return confirm('Are you sure?')">
                               @csrf
                               @method('DELETE')
                               <button type="submit" id="del" class="btn btn-danger">Delete</button>

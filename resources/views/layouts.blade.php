@@ -78,7 +78,7 @@
 
 
   <!-- Main Content -->
-  <div class="container">
+  <div class="container h-100 d-inline-block">
     @yield('content')
   </div>
 
@@ -134,6 +134,10 @@
 <!-- Optional: include a polyfill for ES6 Promises for IE11 -->
 <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 @show
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+
+</script>
 </body>
 
 </html>

@@ -170,5 +170,6 @@ return redirect()->back();
       //redirect
       session()->flash('type', 'success');
       session()->flash('message', 'Client Deleted Successfully.');
+      return redirect()->back();
     }
 }
