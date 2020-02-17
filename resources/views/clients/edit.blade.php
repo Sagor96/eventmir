@@ -3,7 +3,6 @@
 @section('title','Update Client')
 
 @section('content')
-<section class="content-header">
     <div class="row'">
       <div class="col-md-6">
         <h1 style="display: inline-block;">Edit Client</h1>
@@ -17,8 +16,9 @@
 <hr/>
 <!-- Main content -->
 <hr/>
+<div class="w-75 p-3" style="background-color: #eee685;">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-md-6">
 
         <div class="box box-primary">
                 <!-- form start -->
@@ -81,5 +81,6 @@
     <!-- /.col -->
   </div>
   <!-- /.row -->
+</div>
 </section>
 @stop

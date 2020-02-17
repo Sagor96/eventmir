@@ -1,6 +1,7 @@
 @extends('master')
 
-@section('title','EventTypeList')
+@section('title','VenueList')
+
 @section('sidebar')
       <div class="logo">
         <a href="/" class="simple-text logo-mini">
@@ -37,11 +38,11 @@
 <section class="content-header">
   <div class="row'">
     <div class="col-md-6">
-      <h1 style="display: inline-block;">Event Type Lists</h1>
+      <h1 style="display: inline-block;">Venue Lists</h1>
     </div>
     <div class="col-md-6">
       <div class="add-new">
-        <a href="{{ route('types.create')}}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp;Add New Event Type</a>
+        <a href="{{ route('venues.create')}}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp;Add New Event Venue</a>
       </div>
     </div>
   </div>
@@ -70,27 +71,31 @@
                   <thead class="text-info">
                     <tr>
                         <th>SL</th>
-                        <th>Event Type Name</th>
+                        <th>Event Venue Name</th>
+                        <th>Event Venue Address</th>
+                        <th>Event Venue status</th>
                         <th>Action</th>
                     </tr>
                   </thead>
 
                   <tbody>
                     <?php $i=1; ?>
-                    @foreach($types as $type)
+                    @foreach($venues as $venue)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td>{{ $type->t_name }}</td>
+                        <td>{{ $venue->v_name }}</td>
+                        <td>{{ $venue->v_addr }}</td>
+                        <td>{{ $venue->status ==1 ? 'Empty' : 'Fixed' }}
                         <td>
                         <div class=" action">
-                        <a href="{{ route('types.edit', $type->id)}}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> &nbsp;Edit </a>
+                        <a href="{{ route('venues.edit', $venue->id)}}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> &nbsp;Edit </a>
                         <span>
                           <style type="text/css">
                             .myform{
                               display: inline;
                             }
                           </style>
-                          <form class="myform" action="{{ route('types.destroy', $type->id) }}" method="post" onsubmit="return confirm('Are you sure?')">
+                          <form class="myform" action="{{ route('venues.destroy', $venue->id) }}" method="post" onsubmit="return confirm('Are you sure?')">
                               @csrf
                               @method('DELETE')
                               <button type="submit" id="del" class="btn btn-danger">Delete</button>

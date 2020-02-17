@@ -18,6 +18,7 @@
 <hr/>
 <!-- Main content -->
 <hr/>
+<div class="w-75 p-3" style="background-color: #90EE90;">
   <div class="row">
     <div class="col-xs-12">
 
@@ -69,6 +70,7 @@
     <!-- /.col -->
   </div>
   <!-- /.row -->
+</div>
 </section>
 
 @endsection

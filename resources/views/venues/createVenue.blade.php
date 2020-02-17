@@ -1,17 +1,17 @@
 @extends('layouts')
 
-@section('title','TypeAdd')
+@section('title','VenueAdd')
 
 @section('content')
 
 <section class="content">
   <div class="row">
       <div class="col-md-6">
-        <h1 style="display: inline-block;">Add Event Type</h1>
+        <h1 style="display: inline-block;">Add Event Venue</h1>
       </div>
       <div class="col-md-6">
         <div class="add-new">
-          <a href="{{ route('types.index')}}" class="btn btn-success"><i class="fa fa-list-ul" aria-hidden="true"></i> &nbsp;Package List</a>
+          <a href="{{ route('venues.index')}}" class="btn btn-success"><i class="fa fa-list-ul" aria-hidden="true"></i> &nbsp;Package List</a>
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@
 
         <div class="box box-primary">
                 <!-- form start -->
-            <form role="form" action="{{ route('types.store') }}" method="post">
+            <form role="form" action="{{ route('venues.store') }}" method="post">
 	            @csrf
 
 	            @if ($errors->any())
@@ -47,11 +47,23 @@
 	                </div>
 	            @endif
                 <div class="box-body">
-					<div class="form-group">
-					  <label for="t_name">Event Type Name</label>
-					  <input type="text" class="form-control" id="t_name" placeholder="Type Name" name="t_name" value="{{ old('t_name') }}">
-					</div>
-	            </div>
+					             <div class="form-group">
+					                  <label for="v_name">Event Venue Name</label>
+					                  <input type="text" class="form-control" id="v_name" placeholder="Venue Name" name="v_name" value="{{ old('v_name') }}">
+					             </div>
+                       <div class="form-group">
+					                  <label for="v_addr">Event Venue Address</label>
+					                  <input type="text" class="form-control" id="v_addr" placeholder="Venue Address" name="v_addr" value="{{ old('v_addr') }}">
+					             </div>
+                       <div class="form-group">
+                         <label for="status">Status</label>
+                         <select name="status" class="form-control">
+                           <option value="1">Empty</option>
+                           <option value="0">Fixed</option>
+                         </select>
+                       </div>
+
+	               </div>
                 <!-- /.box-body -->
 
                 <div class="box-footer">

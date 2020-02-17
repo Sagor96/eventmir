@@ -1,21 +1,22 @@
 @extends('layouts')
 
-@section('title','ServiceUpdate')
+@section('title','EventVenueUpdate')
 
 @section('content')
 
 <section class="content">
   <div class="row">
       <div class="col-md-6">
-        <h1 style="display: inline-block;">Edit Service</h1>
+        <h1 style="display: inline-block;">Edit Event Venue</h1>
       </div>
       <div class="col-md-6">
         <div class="add-new">
-          <a href="{{ route('services.index')}}" class="btn btn-success"><i class="fa fa-list-ul" aria-hidden="true"></i> &nbsp;Service List</a>
+          <a href="{{ route('venues.index')}}" class="btn btn-success"><i class="fa fa-list-ul" aria-hidden="true"></i> &nbsp;Event Venue List</a>
         </div>
       </div>
     </div>
 <hr/>
+
 <!-- Main content -->
 <hr/>
 <div class="w-75 p-3" style="background-color: #eee685;">
@@ -24,7 +25,7 @@
 
         <div class="box box-primary">
                 <!-- form start -->
-            <form role="form" action="{{ route('services.update', $services->id) }}" method="post">
+            <form role="form" action="{{ route('venues.update', $venues->id) }}" method="post">
 	              @csrf
 	              @method('PUT')
 
@@ -48,14 +49,21 @@
 	                </div>
 	              @endif
                 <div class="box-body">
-					<div class="form-group">
-					  <label for="s_name">Service Name</label>
-					  <input type="text" class="form-control" id="s_name" placeholder="Service Name" name="s_name" value="{{ $services->s_name }}">
-					</div>
-					<div class="form-group">
-					  <label for="s_amount">Amounts(Tk)</label>
-					  <input type="text" class="form-control" id="s_amount" placeholder="Amounts" name="s_amount" value="{{ $services->s_amount }}">
-					</div>
+					             <div class="form-group">
+					                    <label for="v_name">Event Venue Name</label>
+					                    <input type="text" class="form-control" id="v_name" placeholder="Venue Name" name="v_name" value="{{ $venues->v_name }}">
+					             </div>
+                       <div class="form-group">
+					                    <label for="v_addr">Event Venue Address</label>
+					                    <input type="text" class="form-control" id="v_addr" placeholder="Venue Address" name="v_addr" value="{{ $venues->v_addr }}">
+					             </div>
+                       <div class="form-group">
+                    <label for="status">Status</label>
+                    <select name="status" class="form-control">
+                        <option value="1" @if ($venues->status === 1) selected @endif>Empty</option>
+                        <option value="0" @if ($venues->status === 0) selected @endif>Fixed</option>
+                    </select>
+                </div>
 	            </div>
                 <!-- /.box-body -->
 
@@ -71,9 +79,9 @@
     <!-- /.col -->
 
   </div>
+</div>
 
   <!-- /.row -->
-</div>
 </section>
 
 @stop

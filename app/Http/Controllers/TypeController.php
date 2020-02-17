@@ -16,7 +16,7 @@ class TypeController extends Controller
      */
     public function index()
     {
-      $data = [];
+        $data = [];
         $data['types'] = \App\Models\Type::select('id','t_name')->get();
         return view('types.type', $data);
     }
@@ -112,9 +112,9 @@ class TypeController extends Controller
       }
 
       //insert to database
-      $service = \App\Models\Service::find($id);
+      $service = \App\Models\Type::find($id);
       $service->update([
-          's_name'      => $request->input('s_name'),
+          't_name'      => $request->input('t_name'),
       ]);
 
       //redirect

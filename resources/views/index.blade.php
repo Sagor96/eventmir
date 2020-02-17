@@ -54,7 +54,7 @@
                 <a class="dropdown-item" href="{{route('services.index')}}">Services</a>
                 <a class="dropdown-item" href="{{route('clients.index')}}">Client</a>
                 <a class="dropdown-item" href="{{route('types.index')}}">Event Type</a>
-                <a class="dropdown-item" href="#">Notice Details</a>
+                <a class="dropdown-item" href="{{route('venues.index')}}">Venue</a>
                 <a class="dropdown-item" href="#">Research</a>
                 <a class="dropdown-item" href="#">Scholarship</a>
                 <a class="dropdown-item" href="#">Course Details</a>
