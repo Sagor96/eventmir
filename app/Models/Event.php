@@ -13,11 +13,11 @@ class Event extends Model
   'e_date',
 ];
     //Many to many
-      public function service(){
+      public function type(){
     	   return $this->belongsTo(Type::class);
        }
     //Many to many
-      public function service(){
+      public function venue(){
     	   return $this->belongsTo(Venue::class);
        }
 }

@@ -66,7 +66,7 @@
             <a class="nav-link js-scroll-trigger" href="#about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+            <a class="nav-link js-scroll-trigger" href="{{route('sprovider.index')}}">Provider</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
@@ -85,7 +85,7 @@
           <div class="site-heading">
             <div class="intro-text">
               <div class="intro-lead-in">Welcome To Our Website!!!</div>
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#">Let's Share US An Event</a>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{{route('events.create')}}">Let's Share US An Event</a>
             </div>
           </div>
         </div>

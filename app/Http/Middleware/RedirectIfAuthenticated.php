@@ -8,18 +8,20 @@ use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @param  string|null  $guard
-     * @return mixed
-     */
-    public function handle($request, Closure $next, $guard = null)
+  public function handle($request, Closure $next, $guard = null)
     {
+        if ($guard == "sprovider" && Auth::guard($guard)->check()) {
+            return redirect('/sprovider');
+        }
+        if ($guard == "clientlog" && Auth::guard($guard)->check()) {
+            return redirect('/clientlog');
+        }
+        if ($guard == "stafflog" && Auth::guard($guard)->check()) {
+            return redirect('/stafflog');
+        }
+
         if (Auth::guard($guard)->check()) {
-            return redirect(RouteServiceProvider::HOME);
+            return redirect('/home');
         }
 
         return $next($request);

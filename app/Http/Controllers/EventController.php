@@ -13,7 +13,9 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+      $data = [];
+      $data['events'] = \App\Models\Event::with('type', 'venue')->select('id','e_name', 'type_id', 'venue_id')->orderBy('id')->get();
+      return view('events.event', $data);
     }
 
     /**
@@ -23,7 +25,10 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+      $data = [];
+      $data['types'] = \App\Models\Type::all();
+      $data['venues'] = \App\Models\Venue::all();
+      return view('events.createEvent', $data);
     }
 
     /**
@@ -34,7 +39,33 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //validate
+      $rules = [
+          'e_name'           => 'required',
+          'type_id'          => 'required|integer',
+          'venue_id'         => 'required|integer',
+          'e_date'           => 'required|date',
+      ];
+
+      $validator = Validator::make($request->all(), $rules);
+
+      if ($validator->fails()) {
+          return redirect()->back()->withErrors($validator)->withInput();
+      }
+
+      //insert to database
+      \App\Models\Event::create([
+          'e_name'       => $request->input('e_name'),
+          'type_id'      => $request->input('type_id'),
+          'venue_id'     => $request->input('venue_id'),
+          'e_date'       => $request->input('e_date'),
+      ]);
+
+      //redirect
+      session()->flash('type', 'success');
+      session()->flash('message', 'Event added Successfully');
+
+      return redirect()->back();
     }
 
     /**
@@ -56,7 +87,13 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+      $data = [];
+      $data['types'] = \App\Models\Type::all();
+      $data['venues'] = \App\Models\Venue::all();
+
+      $data['events'] = \App\Models\Event::select('id','e_name', 'type_id','venue_id','e_date')->find($id);
+
+      return view('events.editEvent', $data);
     }
 
     /**
@@ -68,7 +105,34 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      //validate
+      $rules = [
+        'e_name'           => 'required',
+        'type_id'          => 'required|integer',
+        'venue_id'         => 'required|integer',
+        'e_date'           => 'required|date',
+      ];
+
+      $validator = Validator::make($request->all(), $rules);
+
+      if ($validator->fails()) {
+          return redirect()->back()->withErrors($validator)->withInput();
+      }
+
+      //insert to database
+      $hosting = \App\Models\Event::find($id);
+      $hosting->update([
+        'e_name'       => $request->input('e_name'),
+        'type_id'      => $request->input('type_id'),
+        'venue_id'     => $request->input('venue_id'),
+        'e_date'       => $request->input('e_date'),
+      ]);
+
+      //redirect
+      session()->flash('type', 'success');
+      session()->flash('message', 'Event Updated Successfully.');
+
+      return redirect()->back();
     }
 
     /**
@@ -79,6 +143,13 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $event = \App\Models\Event::find($id);
+      $event->delete();
+
+      //redirect
+      session()->flash('type', 'success');
+      session()->flash('message', 'Event Deleted Successfully.');
+
+      return redirect()->back();
     }
 }

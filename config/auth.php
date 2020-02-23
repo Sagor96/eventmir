@@ -46,6 +46,20 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'sprovider' => [
+            'driver' => 'session',
+            'provider' => 'sproviders',
+        ],
+
+        'clientlog' => [
+            'driver' => 'session',
+            'provider' => 'clientlogs',
+        ],
+
+        'stafflog' => [
+            'driver' => 'session',
+            'provider' => 'stafflogs',
+        ],
     ],
 
     /*
@@ -69,6 +83,20 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        'sproviders' => [
+            'driver' => 'eloquent',
+            'model' => App\Sprovider::class,
+        ],
+
+        'clientlogs' => [
+            'driver' => 'eloquent',
+            'model' => App\Clientlog::class,
+        ],
+
+        'stafflogs' => [
+            'driver' => 'eloquent',
+            'model' => App\Stafflog::class,
         ],
 
         // 'users' => [

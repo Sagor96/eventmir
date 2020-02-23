@@ -13,7 +13,7 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="#">
+            <a href="{{route('sp_dashboard')}}">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
@@ -37,11 +37,11 @@
 <section class="content-header">
   <div class="row'">
     <div class="col-md-6">
-      <h1 style="display: inline-block;">Event Lists</h1>
+      <h1 style="display: inline-block;">Service Provider Lists</h1>
     </div>
     <div class="col-md-6">
       <div class="add-new">
-        <a href="{{ route('events.create')}}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp;Create New Event</a>
+        <a href="{{ route('sprovider.create')}}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp;Create New Service Provider</a>
       </div>
     </div>
   </div>
@@ -67,44 +67,23 @@
             <div class="box-body">
               <div class="card" style="strong">
                 <table id="example1" class="table table-dark table-striped">
-                  <thead class="text-info">
+                  <thead>
                     <tr>
                         <th>SL</th>
-                        <th>Event Name</th>
-                        <th>Event Type</th>
-                        <th>Event Venue</th>
-                        <th>Event Date</th>
-                        <th>Action</th>
+                        <th>Name</th>
+                        <!-- <th>User Name</th> -->
+                        <th>E-Mail</th>
                     </tr>
                   </thead>
 
                   <tbody>
                     <?php $i=1; ?>
-                    @foreach($events as $event)
+                    @foreach($sproviders as $sprovider)
                     <tr>
-                        <td>{{ $i++ }}</td>
-                        <td>{{ $event->e_name }}</td>
-                        <td>{{ $event->type->t_name  }}</td>
-                        <td>{{ $event->venue->v_name }}</td>
-                        <td>{{ $event->e_date }}</td>
-                        <td>
-                        <div class=" action">
-                        <a href="{{ route('events.edit', $event->id)}}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> &nbsp;Edit </a>
-                        <span>
-                          <style type="text/css">
-                            .myform{
-                              display: inline;
-                            }
-                          </style>
-                          <form class="myform" action="{{ route('events.destroy', $event->id) }}" method="post" onsubmit="return confirm('Are you sure?')">
-                              @csrf
-                              @method('DELETE')
-                              <button type="submit" id="del" class="btn btn-danger">Delete</button>
-                          </form>
-                        </span>
+                        <td>{{ $i++}}</td>
+                        <td>{{ $sprovider->name }}</td>
+                        <td>{{ $sprovider->email }}</td>
 
-                      </div>
-                        </td>
                     </tr>
                   @endforeach
                   </tbody>
@@ -120,15 +99,6 @@
     <!-- /.col -->
   </div>
   <!-- /.row -->
-  <!---DELETE--->
-  <div class="col-sm-12">
-
-            @if(session()->get('success'))
-              <div class="alert alert-success alert-danger">
-                {{ session()->get('success') }}
-              </div>
-            @endif
-          </div>
 
 </section>
 @endsection
