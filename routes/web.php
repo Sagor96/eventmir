@@ -45,7 +45,7 @@ Route::resource('events', 'EventController');
 Route::apiresource('events', 'EventController');
 
 //Auth Area
-//routes for guest
+//routes for guest Service Provider
 	  Route::group(['middleware'=>'guest'],function(){
     Route::get('/sprovider/login','SproviderAuthController@login')->name('sprovider.login');
     Route::get('/sprovider/register','SproviderAuthController@register')->name('sprovider.register');
@@ -55,6 +55,18 @@ Route::apiresource('events', 'EventController');
 
     Route::post('/sprovider/login','SproviderAuthController@authenticate')->name('sprovider.auth');
     Route::post('/sprovider/store','SproviderAuthController@store')->name('sprovider.store');
+});
+
+//routes for guest Service Provider
+	  Route::group(['middleware'=>'guest'],function(){
+    Route::get('/clientlog/login','ClientlogController@login')->name('clientlog.login');
+    Route::get('/clientlog/register','ClientlogController@register')->name('clientlog.register');
+    Route::get('/clientlog/home','ClientlogController@home')->name('clientlog.home');
+    Route::get('/cl_dashboard', 'ClientlogController@index')->name('cl_dashboard');
+    Route::get('/cl_logout','ClientlogController@logoutClientlog')->name('cl_logout');
+
+    Route::post('/clientlog/login','ClientlogController@authenticate')->name('clientlog.auth');
+    Route::post('/clientlog/store','ClientlogController@store')->name('clientlog.store');
 });
 
 //Auth Area 2

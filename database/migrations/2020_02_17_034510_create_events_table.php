@@ -15,11 +15,15 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('e_name',100);
-            $table->integer('type_id')->unsigned()->nullable();
-            $table->integer('venue_id')->unsigned()->nullable();
+            $table->string('e_name');
+            $table->string('type_id')->nullable();
+            $table->string('venue_id')->nullable();
             $table->date('e_date');
             $table->timestamps();
+
+            //foreign key
+            //$table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
+            //$table->foreign('venue_id')->references('id')->on('venues')->onDelete('cascade');
         });
     }
 

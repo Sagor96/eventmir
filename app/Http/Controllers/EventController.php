@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class EventController extends Controller
 {
@@ -42,8 +44,8 @@ class EventController extends Controller
       //validate
       $rules = [
           'e_name'           => 'required',
-          'type_id'          => 'required|integer',
-          'venue_id'         => 'required|integer',
+          'type_id'          => 'required',
+          'venue_id'         => 'required',
           'e_date'           => 'required|date',
       ];
 
